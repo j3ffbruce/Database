@@ -1,0 +1,40 @@
+-- ====================================================================================
+-- SGBD: <PostgreSQL>
+-- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Descrição: Práticas e Uso de Comandos PSQL
+-- ====================================================================================
+
+---------------------------------------------------------------------------------------
+-- SUMÁRIO
+---------------------------------------------------------------------------------------
+
+* WATCH
+* TIMING
+
+
+---------------------------------------------------------------------------------------
+-- WATCH
+---------------------------------------------------------------------------------------
+
+SINTAXE: \watch <paremetro:inteiro>
+
+- Este comando serve para que um determinado comando seja executado "N" vezes em um 
+- intervalo de tempo.
+- Se faz necessário que o disparo do comando seja feito via PSQL - Terminal
+
+
+Exemplo: Neste cenário o comando SELECT será executando a cada 1 segundo.
+
+SELECT '1';
+\watch 1
+
+---------------------------------------------------------------------------------------
+-- TIMING
+---------------------------------------------------------------------------------------
+
+SINTXE: \timing
+
+- Este comando serve para habilitar e inabilitar o tempo de execução de cada instrução
+- Se faz necessário que o disparo do comando seja feito via PSQL - Terminal
+
+---------------------------------------------------------------------------------------
