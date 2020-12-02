@@ -1,0 +1,41 @@
+-- ====================================================================================
+-- SGBD: <PostgreSQL>
+-- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Descrição: Práticas e Uso de pg_dump
+-- ====================================================================================
+
+Definição: 
+Comando utilizado para efetiviação de Backups no PostgreSQL.
+
+Parametros:
+
+--column-inserts (Para Gerar Comandos Inserts Explicitos)
+-s  (Para gerar dump de apenas Schema)
+-a  (Para gerar dump de apenas Dados)
+-T  (Para excluir tabelas do dump)
+-t  (Para definir tabelas especificas para o dump)
+-v  (Lista Execao do Dump no Prompt)
+-Z9 (Efetua compactação do Dump - nivel 9)
+
+
+
+-- Backup apenas do schema da Base de Dados
+pg_dump -v -h localhost -U postgres -d database_name > filename -s
+
+-- Backup apenas dos dados da Base de Dados
+pg_dump -v -h localhost -U postgres -d database_name > filename -a
+
+-- Backup apenas de uma tabela
+pg_dump -v -h localhost -U postgres -d database_name -t table_name > filename 
+
+-- Backup apenas do schema de uma tabela
+pg_dump -v -h localhost -U postgres -d database_name -t table_name > filename -s
+
+-- Backup apenas do schema de "n"tabela
+pg_dump -v -h localhost -U postgres -d database_name -t table_name -t table_name > filename -s
+
+-- Backup apenas dos dados de uma tabela
+pg_dump -v -h localhost -U postgres -d database_name -t table_name > filename -a
+
+-- Backup da base dados com compressão
+pg_dump -v -Z9 -h localhost -U postgres -d database_name > filename.zip
