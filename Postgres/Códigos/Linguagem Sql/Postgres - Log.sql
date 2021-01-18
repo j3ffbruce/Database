@@ -30,4 +30,4 @@ ALTER SYSTEM SET log_rotation_size  = '1024';
 ALTER SYSTEM SET log_truncate_on_rotation  = 'off';
 
 -- Parametriza qual conteúdo será logado (Padrão = none) - ddl , mod e all --
-ALTER SYSTEM SET log_truncate_on_rotation  = 'off';
+ALTER SYSTEM SET log_statement = 'none';
