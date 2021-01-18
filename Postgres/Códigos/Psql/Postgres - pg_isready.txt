@@ -1,0 +1,23 @@
+-- ====================================================================================
+-- SGBD: <PostgreSQL>
+-- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Descrição: Práticas e Uso de pg_isready
+-- ====================================================================================
+
+Definição: 
+Comando utilizado para Validação do Status do Serviço dop Postgres
+
+Parametros:
+
+-h --host Nome do host a ser conectado
+-q --quiet Não exibe mensagem de status. Isso é útil durante a criação de scripts.
+-t --timeout O número máximo de segundos a aguardar ao tentar a conexão antes de retornar que o servidor não está respondendo. Definir como 0 desativa. O padrão é 3 segundos.
+
+-- Comando de Validação de Conexão
+
+pg_isready -h <host>
+
+
+
+
+
