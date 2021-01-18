@@ -1,0 +1,37 @@
+-- ====================================================================================
+-- SGBD: <PostgreSQL>
+-- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Descrição: Práticas e Uso de pgbench
+-- ====================================================================================
+
+Definição: 
+Comando utilizado para efetiviação de Testes de Stress no PostgreSQL.
+
+Parametros:
+
+-c --client: Define a quantidade a ser utilizados
+-C --connect: Estabeleça uma nova conexão para cada transação, em vez de fazer apenas uma vez por sessão de cliente. Isso é útil para medir a sobrecarga da conexão.
+-d --debug: Imprime saída de depuração
+-f --file: Adiciona um script customizado ao bench de teste
+-n --no-vacuum: Não faça aspiração antes de executar o teste. Esta opção é necessária se você estiver executando um cenário de teste personalizado
+-r --report-latencies: Relate a latência média por instrução (tempo de execução da perspectiva do cliente) de cada comando após a conclusão do benchmark. Veja abaixo os detalhes
+-r --transactions: Número de transações que cada cliente executa. O padrão é 10.
+-T --time=seconds: Execute o teste por muitos segundos, em vez de um número fixo de transações por cliente. -te -Tsão mutuamente exclusivos.
+-v --vacuum-all: Aspire todas as quatro tabelas padrão antes de executar o teste.
+
+-h --host: O nome do host do servidor de banco de dados
+-p --port: O número da porta do servidor de banco de dados
+-U --username: O nome de usuário para conectar como
+
+-- Comando de Bench Test por Cliente e Transação (Usando arquivo personalizado)
+
+pgbench -c 1 -t 1 -f 'D:\1.sql' -h <host> -U <user> <database>
+
+-- Comando de Bench Test por tempo (Usando arquivo personalizado)
+
+pgbench -T 1 -f 'D:\1.sql' -h <host> -U <user> <database>
+
+
+
+
+
