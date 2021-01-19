@@ -31,3 +31,6 @@ ALTER SYSTEM SET log_truncate_on_rotation  = 'off';
 
 -- Parametriza qual conteúdo será logado (Padrão = none) - ddl , mod e all --
 ALTER SYSTEM SET log_statement = 'none';
+
+-- Parametriza se a duração das execuções serão logadas (OFF é o padrão - Não Logar duração) --
+ALTER SYSTEM SET log_duration  = 'off';
