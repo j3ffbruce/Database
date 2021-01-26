@@ -16,6 +16,7 @@ Parametros:
 -t  (Para definir tabelas especificas para o dump)
 -v  (Lista Execao do Dump no Prompt)
 -Z9 (Efetua compactação do Dump - nivel 9)
+-E  (Parametro para Definir o encoding do arquivo)
 
 
 
