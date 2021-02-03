@@ -35,28 +35,29 @@ BEGIN
 
 	SET TIMEZONE TO 'America/Sao_Paulo'; 
 	SET CONSTRAINTS ALL IMMEDIATE;
+	DROP TABLE IF EXISTS log_script_execution;
+	CREATE TEMPORARY TABLE log_script_execution (json_result json);
 	RAISE NOTICE E'Session Settings is done, skipping ...\n';
 
 DECLARE
 		
 BEGIN 
 
-	RAISE INFO '- Starting Processing';
+	RAISE INFO '✔ Starting Processing';
 
-	DROP TABLE IF EXISTS log_script_execution;
-	CREATE TEMPORARY TABLE log_script_execution (json_result json);
+	
 		
-	RAISE INFO '- Processing completed successfully';
+	RAISE INFO '✔ Processing completed successfully';
 	
 END;
 	
 EXCEPTION WHEN OTHERS THEN 
 		
-	RAISE WARNING '[ERRO] O processamento gerou uma excecao !';
+	RAISE WARNING '❌ O processamento gerou uma excecao !';
 	GET STACKED DIAGNOSTICS var_err_context := PG_EXCEPTION_CONTEXT;
-	RAISE WARNING '[ERRO] Error Name:%',SQLERRM;
-	RAISE WARNING '[ERRO] Error State:%', SQLSTATE;
-	RAISE WARNING '[ERRO] Error Context:%', CAST(var_err_context AS VARCHAR);
+	RAISE WARNING '❌ Error Name:%',SQLERRM;
+	RAISE WARNING '❌ Error State:%', SQLSTATE;
+	RAISE WARNING '❌ Error Context:%', CAST(var_err_context AS VARCHAR);
   
 END main;
 $$ LANGUAGE PLPGSQL;
