@@ -35,8 +35,6 @@ BEGIN
 
 	SET TIMEZONE TO 'America/Sao_Paulo'; 
 	SET CONSTRAINTS ALL IMMEDIATE;
-	DROP TABLE IF EXISTS log_script_execution;
-	CREATE TEMPORARY TABLE log_script_execution (json_result json);
 	RAISE NOTICE E'Session Settings is done, skipping ...\n';
 
 DECLARE
@@ -61,12 +59,3 @@ EXCEPTION WHEN OTHERS THEN
   
 END main;
 $$ LANGUAGE PLPGSQL;
-
--- =========================================================================================================================
--- | Consulta: Exibe log dos dados manipulados na Base de Dados pelo script
--- | Parametro: Nenhum
--- | Retorno: Json {"tabela": "", "operacao":"", "data":""}
--- =========================================================================================================================
-
--- 	SELECT json_agg(log_script_execution.*) "resultSQL" 
--- 	FROM log_script_execution;
