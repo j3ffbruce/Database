@@ -4,6 +4,18 @@
 -- Descrição: Size Object
 -- ====================================================================================
 
+-- Lista o Volume de Todas as Tabelas
+SELECT 
+ OBJECT_NAME(ps.[object_id]) AS [TableName] , i.name AS [IndexName] , 
+SUM(ps.row_count) AS [RowCount]
+FROM sys.dm_db_partition_stats AS ps 
+ INNER JOIN sys.indexes AS i 
+  ON i.[object_id] = ps.[object_id] AND i.index_id = ps.index_id
+WHERE i.type_desc IN ( 'CLUSTERED', 'HEAP' ) AND i.[object_id] > 100 
+AND OBJECT_SCHEMA_NAME(ps.[object_id]) <> 'sys'
+GROUP BY ps.[object_id] , i.name
+ORDER BY SUM(ps.row_count) DESC ;
+
 
 -- Exibe o volume das Tabelas
 SELECT 
