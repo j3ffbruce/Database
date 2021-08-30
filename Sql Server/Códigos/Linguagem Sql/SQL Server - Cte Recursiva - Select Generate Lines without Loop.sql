@@ -1,15 +1,16 @@
--- ====================================================================================
--- SGBD: <SQL Server>
--- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
--- Descrição: CteRecursiva
--- ====================================================================================
+
+-- ================================================ ====================================
+-- DBMS: <SQL Server>
+-- Author: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Description: CteRecursive
+-- ==================================================================================== 
 
 
--- EXEMPLO:
+-- EXAMPLE:
 
--- X3 CONTRATOS
--- X6 PARCELAS CADA
--- X18 LINHAS
+-- X3 CONTRACTS
+-- X6 PLOTS EACH
+-- X18 LINES
 
 
 

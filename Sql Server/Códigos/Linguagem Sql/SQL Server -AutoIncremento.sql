@@ -1,9 +1,8 @@
 -- ====================================================================================
--- SGBD: <SQL Server>
--- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
--- Descrição: AutoIncremento
+-- DBMS: <SQL Server>
+-- Author: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Description: AutoIncrement
 -- ====================================================================================
 
-
-DBCC CHECKIDENT ('<table_name>', RESEED, 10);  -- Reajusta o Índice do AutoIncremento de uma Tabela
-SELECT IDENT_CURRENT('<table_name>'); -- Valida Ponteiro de uma Tabela
+DBCC CHECKIDENT ('<table_name>', RESEED, 10);  -- Readjusts the AutoIncrement Index of a Table
+SELECT IDENT_CURRENT('<table_name>'); -- Validate Pointer of a Table

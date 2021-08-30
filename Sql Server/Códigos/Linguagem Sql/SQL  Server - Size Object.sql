@@ -1,10 +1,10 @@
 -- ====================================================================================
--- SGBD: <SQL Server>
--- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
--- Descrição: Size Object
+-- DBMS: <SQL Server>
+-- Author: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Description: Size Object
 -- ====================================================================================
 
--- Lista o Volume de Todas as Tabelas
+-- Volume List of All Tables
 SELECT 
  OBJECT_NAME(ps.[object_id]) AS [TableName] , i.name AS [IndexName] , 
 SUM(ps.row_count) AS [RowCount]
@@ -17,7 +17,7 @@ GROUP BY ps.[object_id] , i.name
 ORDER BY SUM(ps.row_count) DESC ;
 
 
--- Exibe o volume das Tabelas
+-- Displays the volume of Tables
 SELECT 
     s.[name] AS [schema],
     t.[name] AS [table_name],

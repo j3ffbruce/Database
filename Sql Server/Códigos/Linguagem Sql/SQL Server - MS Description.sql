@@ -1,11 +1,11 @@
 -- ====================================================================================
--- SGBD: <SQL Server>
--- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
--- Descrição: Ms Description
+-- DBMS: <SQL Server>
+-- Author: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Description: Ms Description
 -- ====================================================================================
 
 
--- Obtendo todas as descrições das colunas de uma Tabela
+-- Getting all column descriptions from a Table
 
 SELECT u.name + '.' + t.name AS 'Schema/Table Names' ,
        -- td.value AS 'Table Desc' ,
@@ -24,8 +24,7 @@ WHERE t.type = 'u'
        AND NOT cd.value IS NULL
 ORDER BY t.name, c.colorder
  
--- Obtendo todas as descrições de uma Tabela
-SELECT c.name AS Field,
+-- Getting all the descriptions from a TableSELECT c.name AS Field,
        t.name AS Type,
        c.Precision,
        c.Scale,
@@ -36,7 +35,7 @@ INNER JOIN sys.types AS t ON t.system_type_id = c.system_type_id
 WHERE object_id = object_id('<insert_table_name>')
 ORDER BY column_id
  
--- Adicionando Descrição em Tabela
+-- Adding Description to Table 
 EXEC sys.sp_addextendedproperty
      @name = N'MS_Description',
      @value = N'Street address information for customers, employees, and vendors.',
@@ -44,7 +43,7 @@ EXEC sys.sp_addextendedproperty
      @level1type = N'TABLE', @level1name = 'Address';
 GO
  
--- Adicionando Descrição em Coluna
+-- Adding Column Description
 EXEC sys.sp_addextendedproperty
      @name = N'MS_Description',
      @value = 'Postal code is a required column.',
@@ -53,7 +52,7 @@ EXEC sys.sp_addextendedproperty
      @level2type = N'COLUMN', @level2name = 'PostalCode';
 GO
  
--- Atualizando Descrição em uma Coluna
+-- Updating Description in a Column
 EXEC sys.sp_updateextendedproperty
      @name = N'MS_Description' ,
      @value = 'Employee ID must be unique.' ,
@@ -62,7 +61,7 @@ EXEC sys.sp_updateextendedproperty
      @level2type = N'COLUMN', @level2name = 'id';
 GO
  
--- Atualizando Descrição de uma Função
+-- Updating a Function Description
 EXEC sys.sp_addextendedproperty
      @name = N'MS_Description',
      @value = N'Performs LTRIM(RTRIM()) on input string. Optionally loops to convert all double-spaces to single-spaces.',

@@ -1,10 +1,10 @@
 -- ====================================================================================
--- SGBD: <SQL Server>
--- Autor: Jefferson Alves Santos - https://github.com/j3ffbruce
--- Descrição: Consultas de Dependencia entre Objetos
+-- DBMS: <SQL Server>
+-- Author: Jefferson Alves Santos - https://github.com/j3ffbruce
+-- Description: Object Dependency Queries
 -- ====================================================================================
 
--- Método 01
+-- Method 01
 
 SELECT OBJECT_SCHEMA_NAME ( referencing_id ) AS referencing_schema_name,
    OBJECT_NAME(referencing_id) AS referencing_entity_name,
@@ -19,18 +19,18 @@ FROM sys.sql_expression_dependencies AS sed
 INNER JOIN sys.objects AS o ON sed.referencing_id = o.object_id
 WHERE referenced_id = OBJECT_ID(N'TB_CONTRATO');
 
--- Método 02
+-- Method 02
 
 SELECT OBJECT_NAME(OBJECT_ID),
 definition
 FROM sys.sql_modules
 WHERE definition LIKE '%' + 'cli_id' + '%'
 
--- Método 03
+-- Method 03
 
 SP_DEPENDS 'TableName'
 
--- Método 04 (Para Procedimentos)
+-- Method 04 (For Procedures)
 
 WITH stored_procedures AS (
 SELECT 
@@ -46,7 +46,7 @@ JOIN SYS.SCHEMAS AS SH ON(SH.schema_id = T.schema_id)
 WHERE row = 1
 ORDER BY proc_name,table_name
 
--- Metodo 5
+-- Method 5
 
 WITH T1 AS(
 	SELECT

@@ -1,5 +1,5 @@
 -- ====================================================================================
--- SGBD: <SQL Server>
+-- DBMS: <SQL Server>
 -- Author: Jefferson Alves Santos - https://github.com/j3ffbruce
 -- Description: Programming Block T-SQL
 -- ====================================================================================
